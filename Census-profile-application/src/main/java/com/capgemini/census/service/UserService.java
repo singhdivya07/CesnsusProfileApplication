@@ -10,5 +10,6 @@ public interface UserService {
 	public User addUser(User user) throws UserException;
 	public User updateUser(Integer userId) throws UserException;
 	public int deleteMember(Integer userId) throws UserException;
+	public List<User> getAllUserDeatils() throws UserException;
 
 }

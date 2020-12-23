@@ -1,8 +1,11 @@
 package com.capgemini.census.service;
 
+import java.util.List;
+
 import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +37,20 @@ public class UserServiceImpl implements UserService{
 	public int deleteMember(Integer userId) throws UserException {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public List<User> getAllUserDeatils() throws UserException {
+		
+			try {
+				List<User> productList=
+						userDao.findAll();
+				return productList;
+			}catch(DataAccessException e) {
+				throw new UserException(e.getMessage(),e);
+			}catch(Exception e) {
+				throw new UserException(e.getMessage(),e);
+			}
+		
 	}
 	
 

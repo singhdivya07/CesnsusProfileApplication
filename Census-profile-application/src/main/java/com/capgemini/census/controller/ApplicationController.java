@@ -11,7 +11,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.capgemini.census.dao.UserDao;
 import com.capgemini.census.entity.Application;
-import com.capgemini.census.entity.User;
 import com.capgemini.census.exception.ApplicationException;
 import com.capgemini.census.service.ApplicationService;
 
@@ -21,9 +20,7 @@ public class ApplicationController {
 		
 		@Autowired
 		private ApplicationService applicationService;
-		@Autowired
-		private UserDao userDao;
-			
+		
 		@PostMapping("/{id}")
 		public void addApplication(@PathVariable Integer id,@RequestBody Application application) 
 		{
